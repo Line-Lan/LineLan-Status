@@ -1,5 +1,4 @@
 <head>
-<!--Meta-Stuff-->
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, user-scalable=no">
 <meta name="theme-color" content="#212121">
@@ -17,11 +16,16 @@
 <title>Line-Lan Server-Status</title>	
 <?php
 // Always use HTTPS
+/*
 if($_SERVER['HTTP_X_FORWARDED_PROTO'] != "https") { 
 	header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); 
 	exit(); 
 }
-
+*/
+if($_SERVER['HTTPS'] != "on") { 
+	header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); 
+	exit(); 
+}
 // Check the Status of a Webserver
 function checkStatus($host, $port) {
 	if($socket =@ fsockopen($host, $port, $errno, $errstr, 2)) {
@@ -47,8 +51,6 @@ function pingStatus($domain){
     return $status;
 }
 ?>
-
-<!--Stylesheets-->
 <style type="text/css">
 	.style1 {
 		font-family: "Courier New", Courier, monospace;
@@ -85,9 +87,8 @@ function pingStatus($domain){
 	a {
 		color: #FFFFFF;
 	}
-</style>
+	</style>
 
-<!--JS-Scripts-->
 <script>
 function countdown(time,id){
 	t = time;
@@ -122,7 +123,6 @@ function print_todays_date( ) {
 }
 </script>
 </head>
-
 <body style="background-color: #212121">
 <h2><br/></h2>
 <table align="center" style="width:25%" class="style2">
@@ -152,7 +152,7 @@ function print_todays_date( ) {
 		</td>
 		<td class="style5">
 		<h2><strong>
-		<?php checkStatus('vweb02.nitrado.net', 3306) ?>
+		<?php checkStatus('localhost', 3306) ?>
 		</strong></h2>
 		</td>
 	</tr>
@@ -162,7 +162,7 @@ function print_todays_date( ) {
 		</td>
 		<td class="style5">
 		<h2><strong>
-		<?php checkStatus('vweb02.nitrado.net', 110) ?>
+		<?php checkStatus('imappro.zoho.com', 993) ?>
 		</strong></h2>
 		</td>
 	</tr>
@@ -182,7 +182,7 @@ function print_todays_date( ) {
 		</td>
 		<td class="style5">
 		<h2><strong>
-		<?php checkStatus('ts78.nitrado.net', 80) ?>
+		<?php checkStatus('5.230.10.109', 80) ?>
 		</strong></h2>
 		</td>
 	</tr>
