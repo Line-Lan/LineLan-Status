@@ -21,6 +21,7 @@
 
       <!-- Bootstrap -->
       <link href="res/css/bootstrap.min.css" rel="stylesheet">
+      <link href="res/css/custom.css" rel="stylesheet">
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
       <!--[if lt IE 9]>
@@ -167,6 +168,16 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+               
+               <ul class="nav navbar-nav navbar-left">
+
+                  
+                  <li><a href="https://line-lan.net">Homepage</a></li>
+                  <li><a href="https://api.line-lan.net">API</a></li>
+                  <li><a href="https://event.line-lan.net">Events</a></li>
+                  <li><a href="https://line-lan.net/teamspeak/">Teamspeak</a></li>
+               </ul>
+               
                <ul class="nav navbar-nav navbar-right">
                   <p class="navbar-text"><strong>last update</strong> <script>print_todays_date();</script></p>
                   <p class="navbar-text"><strong>refreshing in</strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></p>
@@ -192,19 +203,19 @@
                if ($downcount == 0) {
                   echo ('
                            <div class="alert alert alert-success">             
-                              <strong>Everything Online!</strong><br /> It seems like all services are fully available
+                              <strong>Everything Online!</strong><br /> All services are fully available!
                             </div>
                         ');
                } elseif ($downcount != 0 && $downcount <= 2) {
                   echo ('
                            <div class="alert alert alert-warning">             
-                              <strong>Minor outage!</strong><br /> Some services are unavialable, but the most parts should work fine
+                              <strong>Minor outage!</strong><br /> Some services might be unavialable, but the most parts should work fine!
                            </div>
                         ');
                } else {
                   echo ('
                            <div class="alert alert alert-danger">             
-                              <strong>Major outage!</strong><br /> Oh crap, something must go completely wrong. We\'re trying to fix it already!
+                              <strong>Major outage!</strong><br /> Oh crap, something must have gone completely wrong. We\'re fixing it already!
                            </div>
                         ');
                }
