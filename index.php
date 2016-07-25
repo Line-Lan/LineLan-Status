@@ -4,74 +4,34 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, user-scalable=no">
-      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
       <meta name="theme-color" content="#212121">
       <meta name="twitter:card" content="summary">
       <meta name="twitter:creator" content="@L1n3m4st3r"/>
       <meta name="twitter:site" content="@TeamLineLan">
       <meta name="twitter:title" content="Line-Lan Server-Status"/>
+      
       <meta property="og:type" content="website">
       <meta property="og:site_name" content="Line-Lan Status">
       <meta property="og:title" content="Line-Lan Server-Status">
       <meta property="description" content="Monitoring the uptime of Line-Lan services">
       <meta property="og:description" content="Monitoring the uptime of Line-Lan services">
       <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2015/08/favicon-192.png">
+      
       <link rel="shortcut icon" ref="/favicon.ico">
+      
       <title>Line-Lan Server-Status</title>	
 
-      <!-- Bootstrap -->
+
       <link href="res/css/bootstrap.min.css" rel="stylesheet">
       <link href="res/css/custom.css" rel="stylesheet">
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+
       <!--[if lt IE 9]>
         <script src="res/js/html5shiv.min.js"></script>
         <script src="hres/js/respond.min.js"></script>
       <![endif]-->
-      <script>
-         function pad(n, width, z) {
-            z = z || '0';
-            n = n + '';
-            return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
-         }
+      <script src="res/js/countdown.js"></script>
 
-         function countdown(time, id) {
-            t = time;
-            d = Math.floor(t / (60 * 60 * 24)) % 24;
-            h = Math.floor(t / (60 * 60)) % 24;
-            m = Math.floor(t / 60) % 60;
-
-            s = t % 60;
-            d = (d > 0) ? d + "d " : "";
-            h = (h < 10) ? "0" + h : h;
-            m = (m < 10) ? "0" + m : m;
-            s = (s < 10) ? "0" + s : s;
-
-            strZeit = /*d + h + ":" + m + ":" + */s + " seconds";
-
-            if (time > 0) {
-               window.setTimeout('countdown(' + --time + ',\'' + id + '\')', 1000);
-            } else {
-               location.reload(1);
-            }
-            document.getElementById(id).innerHTML = strZeit;
-         }
-
-         function countdown2(d, h, m, s, id)
-         {
-            countdown(d * 60 * 60 * 24 + h * 60 * 60 + m * 60 + s, id);
-         }
-
-         function print_todays_date( ) {
-            var d = new Date();
-            var hours = pad(d.getHours(), 2);
-            var minutes = pad(d.getMinutes(), 2);
-            var seconds = pad(d.getSeconds(), 2);
-            //document.write(d.toLocaleString( ));
-            document.write(hours + ":" + minutes + ":" + seconds);
-         }
-
-      </script>
    </head>
 
    <?php
@@ -157,8 +117,9 @@
    <body>
       <nav class="navbar navbar-inverse">
          <div class="container-fluid">
+            
             <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
@@ -167,11 +128,9 @@
                <a class="navbar-brand" href="#">Line-Lan Server Status</a>
             </div>
 
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+            <div class="collapse navbar-collapse" id="navbar-main">
                
-               <ul class="nav navbar-nav navbar-left">
-
-                  
+               <ul class="nav navbar-nav navbar-left">  
                   <li><a href="https://line-lan.net">Homepage</a></li>
                   <li><a href="https://api.line-lan.net">API</a></li>
                   <li><a href="https://event.line-lan.net">Events</a></li>
@@ -179,17 +138,13 @@
                </ul>
                
                <ul class="nav navbar-nav navbar-right">
-                  <p class="navbar-text"><strong>last update</strong> <script>print_todays_date();</script></p>
-                  <p class="navbar-text"><strong>refreshing in</strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></p>
-                  <p class="navbar-text"><strong>connection latency</strong> <?php echo getPing('google.de'); ?> ms</p>
-                  <!--
-                  
-                  <li><a href="https://line-lan.net">Homepage</a></li>
-                  <li><a href="https://api.line-lan.net">API</a></li>
-                  <li><a href="https://event.line-lan.net">Events</a></li>-->
+                   <li><a href="#"><strong>last update</strong> <script>print_todays_date();</script></a></li>
+                   <li><a href="#"><strong>refreshing in</strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></a></li>
+                   <li><a href="#"><strong>connection latency</strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
-
+            
             </div>
+            
          </div>
       </nav>
 
