@@ -1,3 +1,8 @@
 body {
-   background-image: url("https://line-lan.net/wp-content/uploads/2016/02/bg16-tiled-2.jpg");
+   background: url("https://line-lan.net/wp-content/uploads/2016/02/bg16-tiled-2.jpg") no-repeat center center fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+
 }
