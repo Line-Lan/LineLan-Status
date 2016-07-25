@@ -158,19 +158,19 @@
                if ($downcount == 0) {
                   echo ('
                            <div class="alert alert alert-success">             
-                              <strong>Everything Online!</strong><br /> All services are fully available!
+                              <h4>Everything Online!</h4> All services are fully available!
                             </div>
                         ');
                } elseif ($downcount != 0 && $downcount <= 2) {
                   echo ('
                            <div class="alert alert alert-warning">             
-                              <strong>Minor outage!</strong><br /> Some services might be unavialable, but the most parts should work fine!
+                              <h4>Minor outage!</h4> Some services might be unavialable, but the most parts should work fine!
                            </div>
                         ');
                } else {
                   echo ('
                            <div class="alert alert alert-danger">             
-                              <strong>Major outage!</strong><br /> Oh crap, something must have gone completely wrong. We\'re fixing it already!
+                              <h4>Major outage!</h4> crap, something must have gone completely wrong. We\'re fixing it already!
                            </div>
                         ');
                }
