@@ -12,6 +12,7 @@ $lang = array(
    'last_update' => "last update",
    'refreshing_in' => "refreshing in",
    'connection_latency' => "connection latency",
+   'seconds' => "seconds",
    
    'online' => "online",
    'offline' => "offline",

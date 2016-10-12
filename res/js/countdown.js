@@ -16,7 +16,7 @@ function countdown(time, id) {
    m = (m < 10) ? "0" + m : m;
    s = (s < 10) ? "0" + s : s;
 
-   strZeit = /*d + h + ":" + m + ":" + */s + " seconds";
+   strZeit = /*d + h + ":" + m + ":" + */s;
 
    if (time > 0) {
       window.setTimeout('countdown(' + --time + ',\'' + id + '\')', 1000);

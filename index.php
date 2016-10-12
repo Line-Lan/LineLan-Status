@@ -108,12 +108,8 @@
    } else {
       require_once 'lang/en.php';
    }
-
    
-   // Array with Language-Specific variables
-   // Will be used later to support multi-language
    ?>
-
 
    <body>
       <nav class="navbar navbar-inverse">
@@ -140,7 +136,7 @@
                
                <ul class="nav navbar-nav navbar-right">
                    <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <script>print_todays_date();</script></a></li>
-                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></a></li>
+                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
                    <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
             

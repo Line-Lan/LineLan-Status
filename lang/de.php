@@ -9,9 +9,10 @@
  */
 
 $lang = array(
-   'last_update' => "letzte Aktualisierung",
-   'refreshing_in' => "lädt neu in",
+   'last_update' => "Letzte Aktualisierung",
+   'refreshing_in' => "Lädt neu in",
    'connection_latency' => "Verbindungslatenz",
+   'seconds' => "Sekunden",
    
    'online' => "Online",
    'offline' => "Offline",
