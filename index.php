@@ -100,29 +100,18 @@
       unset($temp);
    }
    
+   // Detecting the users language
+   $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+   if (file_exists('lang/'.$user_lang.'.php')) {
+      require_once 'lang/'.$user_lang.'.php';
+   } else {
+      require_once 'lang/en.php';
+   }
+
+   
    // Array with Language-Specific variables
    // Will be used later to support multi-language
-   
-   $lang = array(
-      'last_update' => "last update",
-      'refreshing_in' => "refreshing in",
-      'connection_latency' => "connection latency",
-      
-      'online' => "online",
-      'offline' => "offline",
-      
-      'all_services_available' => "All services available!",
-      'minor_outage' => "Minor outage!",
-      'major_outage' => "Major outage!",
-      
-      'all_services_available_detail' => "All services are available without any issues!",
-      'minor_outage_detail' => "Some services might be unavailable, but the most parts should work fine!",
-      'major_outage_detail' => "Major parts of the system are offline! We\'re already trying to solve this issue!",
-      
-      'privacy_policy' => "Privacy Policy",
-      "legal_notice" => "Legal notice",
-      "contact" => "Contact us"
-   );
    ?>
 
 
