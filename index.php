@@ -235,7 +235,7 @@
                <div class="well">
                   <center>
                      <a href="https://line-lan.net/datenschutz/">Privacy Policy</a> -
-                     <a href="https://line-lan.net/impressum/">Imprint</a> -
+                     <a href="https://line-lan.net/impressum/">Legal notice</a> -
                      <a href="https://line-lan.net/kontakt/">Contact us</a>
 
                      <br/><br />
