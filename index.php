@@ -35,18 +35,6 @@
    </head>
 
    <?php
-   /*
-     // Always use HTTPS
-     if ($_SERVER['HTTP_X_FORWARDED_PROTO'] != "https") {
-     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-     exit();
-     }
-
-     if($_SERVER['HTTPS'] != "on") {
-     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-     exit();
-     }
-    */
 
    // Check the Status of a Webserver
    function isPingable($host, $port) {
@@ -174,20 +162,7 @@
                            </div>
                         ');
                }
-               ?>
 
-               <!--
-               <div class="alert alert alert-success">             
-                  <strong>Everything Online!</strong> It seems like all services are fully available</a>.
-               </div>
-               <div class="alert alert alert-warning">             
-                  <strong>Everything Online!</strong> It seems like all services are fully available</a>.
-               </div>
-               <div class="alert alert alert-danger">             
-                  <strong>Everything Online!</strong> It seems like all services are fully available</a>.
-               </div>
-               -->
-               <?php
                foreach ($addresses as $key => $value) {
                   if ($statuses[$key]) {
                      $badgeColor = 'success';
@@ -208,29 +183,10 @@
                         </div>
                      </div>
                   ');
-                  /*
-                    echo ('<div class="panel panel-'.$panelColor.'">'
-                    . '<div class="panel-heading">'
-                    .   '<h3 class="panel-title">'.$disp[$key].'</h3>'
-                    . '</div>'
-                    . '<div class="panel-body">'
-                    .      'blabla'
-                    .   '</div>'
-                    . '</div>');
-                   */
+
                   unset($badgeColor);
                }
                ?>
-               <!--
-                 <div class="panel panel-success">
-                    <div class="panel-heading">
-                       <h3 class="panel-title">Panel success</h3>
-                    </div>
-                    <div class="panel-body">
-                       Panel content
-                    </div>
-                 </div>
-               -->
 
                <div class="well">
                   <center>
@@ -239,10 +195,9 @@
                      <a href="https://line-lan.net/kontakt/">Contact us</a>
 
                      <br/><br />
-                     (c) 2012-<?php echo date("Y"); ?> Line-Lan
+                     (c) 2012-<?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
                   </center>                 
                </div>
-
 
             </div>
 
@@ -251,9 +206,8 @@
          </div>
       </div>
 
-      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="res/js/jquery-1.12.3.min.js"></script>
-      <!-- Include all compiled plugins (below), or include individual files as needed -->
       <script src="res/js/bootstrap.min.js"></script>
+      
    </body>
 </html>
