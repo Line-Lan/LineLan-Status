@@ -99,6 +99,30 @@
       }
       unset($temp);
    }
+   
+   // Array with Language-Specific variables
+   // Will be used later to support multi-language
+   
+   $lang = array(
+      'last_update' => "last update",
+      'refreshing_in' => "refreshing in",
+      'connection_latency' => "connection latency",
+      
+      'online' => "online",
+      'offline' => "offline",
+      
+      'all_services_available' => "All services available!",
+      'minor_outage' => "Minor outage!",
+      'major_outage' => "Major outage!",
+      
+      'all_services_available_detail' => "All services are available without any issues!",
+      'minor_outage_detail' => "Some services might be unavailable, but the most parts should work fine!",
+      'major_outage_detail' => "Major parts of the system are offline! We\'re already trying to solve this issue!",
+      
+      'privacy_policy' => "Privacy Policy",
+      "legal_notice" => "Legal notice",
+      "contact" => "Contact us"
+   );
    ?>
 
 
@@ -126,9 +150,9 @@
                </ul>
                
                <ul class="nav navbar-nav navbar-right">
-                   <li><a href="#"><strong>last update</strong> <script>print_todays_date();</script></a></li>
-                   <li><a href="#"><strong>refreshing in</strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></a></li>
-                   <li><a href="#"><strong>connection latency</strong> <?php echo getPing('google.de'); ?> ms</a></li>
+                   <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <script>print_todays_date();</script></a></li>
+                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span></a></li>
+                   <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
             
             </div>
@@ -146,19 +170,19 @@
                if ($downcount == 0) {
                   echo ('
                            <div class="alert alert alert-success">             
-                              <h4>All services available!</h4> All services are available without any issues!
+                              <h4> '. $lang['all_services_available'] .' </h4> '. $lang['all_services_available_detail'] .'
                             </div>
                         ');
                } elseif ($downcount != 0 && $downcount <= 2) {
                   echo ('
                            <div class="alert alert alert-warning">             
-                              <h4>Minor outage!</h4> Some services might be unavailable, but the most parts should work fine!
+                              <h4> '. $lang['minor_outage'] .' </h4> '. $lang['minor_outage_detail'] .'
                            </div>
                         ');
                } else {
                   echo ('
                            <div class="alert alert alert-danger">             
-                              <h4>Major outage!</h4> Major parts of the system are offline! We\'re already trying to solve this issue!
+                              <h4> '. $lang['major_outage'] .' </h4> '. $lang['major_outage_detail'] .'
                            </div>
                         ');
                }
@@ -166,10 +190,10 @@
                foreach ($addresses as $key => $value) {
                   if ($statuses[$key]) {
                      $badgeColor = 'success';
-                     $badgeText = 'online';
+                     $badgeText = $lang['online'];
                   } else {
                      $badgeColor = 'danger';
-                     $badgeText = 'offline';
+                     $badgeText = $lang['offline'];
                   }
 
                   echo ('
@@ -190,12 +214,12 @@
 
                <div class="well">
                   <center>
-                     <a href="https://line-lan.net/datenschutz/">Privacy Policy</a> -
-                     <a href="https://line-lan.net/impressum/">Legal notice</a> -
-                     <a href="https://line-lan.net/kontakt/">Contact us</a>
+                     <a href="https://line-lan.net/datenschutz/"><?php echo $lang['privacy_policy']; ?></a> -
+                     <a href="https://line-lan.net/impressum/"><?php echo $lang['legal_notice']; ?></a> -
+                     <a href="https://line-lan.net/kontakt/"><?php echo $lang['contact']; ?></a>
 
                      <br/><br />
-                     (c) 2012-<?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
+                     &copy; 2012-<?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
                   </center>                 
                </div>
 
