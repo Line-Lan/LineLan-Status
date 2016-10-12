@@ -25,7 +25,7 @@ $lang = array(
    'minor_outage_detail' => "Einige Dienste sind aktuell nicht erreichbar, der Großteil funktioniert aber!",
    'major_outage_detail' => "Große Teile des Systems sind nicht verfügbar, wir arbeiten bereits an einer Problembehebung!",
    
-   'privacy_policy' => "Datenschutzerklärung",
+   'privacy_policy' => "Datenschutz",
    "legal_notice" => "Impressum",
    "contact" => "Kontakt",
 );
