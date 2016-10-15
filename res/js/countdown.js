@@ -30,12 +30,3 @@ function countdown2(d, h, m, s, id)
 {
    countdown(d * 60 * 60 * 24 + h * 60 * 60 + m * 60 + s, id);
 }
-
-function print_todays_date( ) {
-   var d = new Date();
-   var hours = pad(d.getHours(), 2);
-   var minutes = pad(d.getMinutes(), 2);
-   var seconds = pad(d.getSeconds(), 2);
-   //document.write(d.toLocaleString( ));
-   document.write(hours + ":" + minutes + ":" + seconds);
-}
