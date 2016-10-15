@@ -152,25 +152,28 @@
 
             <div class="col-sm-6">
                <?php
+               
                if ($downcount == 0) {
-                  echo ('
-                           <div class="alert alert alert-success">             
-                              <h4> '. $lang['all_services_available'] .' </h4> '. $lang['all_services_available_detail'] .'
-                            </div>
-                        ');
+                  $alert_type = "success";
+                  $alert_title = $lang['all_services_available'];
+                  $alert_text = $lang['all_services_available_detail'];
+                  
                } elseif ($downcount != 0 && $downcount <= 2) {
-                  echo ('
-                           <div class="alert alert alert-warning">             
-                              <h4> '. $lang['minor_outage'] .' </h4> '. $lang['minor_outage_detail'] .'
-                           </div>
-                        ');
+                  $alert_type = "warning";
+                  $alert_title = $lang['minor_outage'];
+                  $alert_text = $lang['minor_outage_detail'];
+
                } else {
-                  echo ('
-                           <div class="alert alert alert-danger">             
-                              <h4> '. $lang['major_outage'] .' </h4> '. $lang['major_outage_detail'] .'
-                           </div>
-                        ');
+                  $alert_type = "danger";
+                  $alert_title = $lang['major_outage'];
+                  $alert_text = $lang['major_outage_detail'];
                }
+               
+               echo ('  
+                     <div class="alert alert-' . $alert_type . '">             
+                        <h4> '. $alert_title .' </h4> '. $alert_text .'
+                     </div>
+                     ');
 
                foreach ($addresses as $key => $value) {
                   if ($statuses[$key]) {
