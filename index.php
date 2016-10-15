@@ -4,25 +4,25 @@
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, user-scalable=no">
+      
+      <title>Line-Lan.net Server Status</title>
 
       <meta name="theme-color" content="#212121">
+      <meta name="description" content="Monitoring the uptime of Line-Lan services"/>
       <meta name="twitter:card" content="summary">
       <meta name="twitter:creator" content="@L1n3m4st3r"/>
       <meta name="twitter:site" content="@TeamLineLan">
-      <meta name="twitter:title" content="Line-Lan Server-Status"/>
+      <meta name="twitter:title" content="Line-Lan.net Server Status"/>
       
       <meta property="og:type" content="website">
-      <meta property="og:site_name" content="Line-Lan Status">
-      <meta property="og:title" content="Line-Lan Server-Status">
+      <meta property="og:site_name" content="Line-Lan.net Server Status">
+      <meta property="og:title" content="Line-Lan.net Server Status">
       <meta property="description" content="Monitoring the uptime of Line-Lan services">
       <meta property="og:description" content="Monitoring the uptime of Line-Lan services">
-      <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2015/08/favicon-192.png">
+      <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2016/10/no_preview_available.jpg">
       
       <link rel="shortcut icon" ref="/favicon.ico">
       
-      <title>Line-Lan Server-Status</title>	
-
-
       <link href="res/css/bootstrap.min.css" rel="stylesheet">
       <link href="res/css/custom.css" rel="stylesheet">
 
@@ -88,6 +88,7 @@
        'api' => 80,
        'teamspeak' => 10011,
        'dns' => 53);
+       
    // Push Value with key into array: $data[$key] = $value;
    $downcount = 0;
 
@@ -122,7 +123,7 @@
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                </button>
-               <a class="navbar-brand" href="#">Line-Lan Server Status</a>
+               <a class="navbar-brand" href="#">Line-Lan.net Server Status</a>
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-main">
@@ -135,8 +136,8 @@
                </ul>
                
                <ul class="nav navbar-nav navbar-right">
-                   <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <script>print_todays_date();</script></a></li>
-                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3">   Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
+                   <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <script> print_todays_date();</script></a></li>
+                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
                    <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
             
