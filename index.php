@@ -66,7 +66,7 @@
    $addresses = array(
        'homepage' => 'line-lan.net',
        'database' => 'localhost',
-       'mail' => 'imappro.zoho.com',
+       'mail' => 'mail.line-lan.net',
        'api' => 'api.line-lan.net',
        'teamspeak' => 'ts.line-lan.net',
        'dns' => 'kevin.ns.cloudflare.com');
