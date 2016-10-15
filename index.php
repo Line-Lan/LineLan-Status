@@ -35,6 +35,14 @@
    </head>
 
    <?php
+   // Detecting the users language
+   $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+   if (file_exists('lang/'.$user_lang.'.php')) {
+      require_once 'lang/'.$user_lang.'.php';
+   } else {
+      require_once 'lang/en.php';
+   }
 
    // Check the Status of a Webserver
    function isPingable($host, $port) {
@@ -101,14 +109,23 @@
       unset($temp);
    }
    
-   // Detecting the users language
-   $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+   if ($downcount == 0) {
+      $alert_type = "success";
+      $alert_title = $lang['all_services_available'];
+      $alert_text = $lang['all_services_available_detail'];
+      
+   } elseif ($downcount != 0 && $downcount <= 2) {
+      $alert_type = "warning";
+      $alert_title = $lang['minor_outage'];
+      $alert_text = $lang['minor_outage_detail'];
 
-   if (file_exists('lang/'.$user_lang.'.php')) {
-      require_once 'lang/'.$user_lang.'.php';
    } else {
-      require_once 'lang/en.php';
+      $alert_type = "danger";
+      $alert_title = $lang['major_outage'];
+      $alert_text = $lang['major_outage_detail'];
    }
+   
+   
    
    ?>
 
@@ -136,9 +153,9 @@
                </ul>
                
                <ul class="nav navbar-nav navbar-right">
-                   <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <script> print_todays_date();</script></a></li>
-                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
-                   <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
+                  <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <?php $localtime = (time() + 60 * 60 * 2); echo date("H:i:s", $localtime); ?></a></li>
+                  <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
+                  <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
             
             </div>
@@ -153,22 +170,6 @@
 
             <div class="col-sm-6">
                <?php
-               
-               if ($downcount == 0) {
-                  $alert_type = "success";
-                  $alert_title = $lang['all_services_available'];
-                  $alert_text = $lang['all_services_available_detail'];
-                  
-               } elseif ($downcount != 0 && $downcount <= 2) {
-                  $alert_type = "warning";
-                  $alert_title = $lang['minor_outage'];
-                  $alert_text = $lang['minor_outage_detail'];
-
-               } else {
-                  $alert_type = "danger";
-                  $alert_title = $lang['major_outage'];
-                  $alert_text = $lang['major_outage_detail'];
-               }
                
                echo ('  
                      <div class="alert alert-' . $alert_type . '">             
