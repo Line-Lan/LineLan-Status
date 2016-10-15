@@ -144,7 +144,6 @@
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-main">
-
                <ul class="nav navbar-nav navbar-left">
                   <li><a href="https://line-lan.net">Homepage</a></li>
                   <li><a href="https://api.line-lan.net">API</a></li>
@@ -157,9 +156,8 @@
                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
                   <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
-
             </div>
-
+            
          </div>
       </nav>
 
@@ -189,11 +187,7 @@
                   echo ('
                      <div class="panel panel-default">
                         <div class="panel-body">
-
-                           <h5>
-                              ' . $disp[$key] . '
-                              <span class="label pull-right label-' . $badgeColor . '">' . $badgeText . '</span>
-                           </h5>
+                           <h5>' . $disp[$key] . '<span class="label pull-right label-' . $badgeColor . '">' . $badgeText . '</span></h5>
                         </div>
                      </div>
                   ');
