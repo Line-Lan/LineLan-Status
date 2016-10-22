@@ -144,17 +144,29 @@
             </div>
 
             <div class="collapse navbar-collapse" id="navbar-main">
-               <ul class="nav navbar-nav navbar-left">
-                  <li><a href="https://line-lan.net">Homepage</a></li>
+               <ul class="nav navbar-nav navbar-left hidden-sm">
+                  <li><a href="https://line-lan.net">Home</a></li>
                   <li><a href="https://api.line-lan.net">API</a></li>
                   <li><a href="https://event.line-lan.net">Events</a></li>
                   <li><a href="https://line-lan.net/teamspeak/">Teamspeak</a></li>
+               </ul>
+               
+                <ul class="nav navbar-nav navbar-left visible-sm-inline">
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links<span class="caret"></span></a>
+                     <ul class="dropdown-menu">
+                        <li><a href="https://line-lan.net">Home</a></li>
+                        <li><a href="https://api.line-lan.net">API</a></li>
+                        <li><a href="https://event.line-lan.net">Events</a></li>
+                        <li><a href="https://line-lan.net/teamspeak/">Teamspeak</a></li>
+                     </ul>
+                 </li>
                </ul>
 
                <ul class="nav navbar-nav navbar-right">
                   <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <?php $localtime = (time() + 60 * 60 * 2); echo date("H:i:s", $localtime); ?></a></li>
                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
-                  <li><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
+                  <li class="visible-lg-inline"><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
             </div>
             
