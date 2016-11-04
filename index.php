@@ -36,7 +36,11 @@
 
    <?php
    // Detecting the users language
-   $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+   if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+      $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+   } else {
+      $user_lang = "en";
+   }
 
    if (file_exists('lang/'.$user_lang.'.php')) {
       require_once 'lang/'.$user_lang.'.php';
