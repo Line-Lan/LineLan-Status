@@ -21,7 +21,7 @@
       <meta property="og:description" content="Monitoring the uptime of Line-Lan services">
       <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2016/10/no_preview_available.jpg">
 
-      <link rel="shortcut icon" ref="/favicon.ico">
+      <link rel="shortcut icon" href="/favicon.ico">
 
       <link href="res/css/bootstrap.min.css" rel="stylesheet">
       <link href="res/css/custom.css" rel="stylesheet">
@@ -212,15 +212,13 @@
                }
                ?>
 
-               <div class="well">
-                  <center>
+               <div class="text-center well">
                      <a href="https://line-lan.net/datenschutz/"><?php echo $lang['privacy_policy']; ?></a> -
                      <a href="https://line-lan.net/impressum/"><?php echo $lang['legal_notice']; ?></a> -
                      <a href="https://line-lan.net/kontakt/"><?php echo $lang['contact']; ?></a>
 
                      <br/><br />
                      &copy; 2012-<?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
-                  </center>
                </div>
 
             </div>
