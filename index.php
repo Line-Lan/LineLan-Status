@@ -1,40 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, user-scalable=no">
+<?php
 
-      <title>Line-Lan.net Server Status</title>
-
-      <meta name="theme-color" content="#212121">
-      <meta name="description" content="Monitoring the uptime of Line-Lan services"/>
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:creator" content="@L1n3m4st3r"/>
-      <meta name="twitter:site" content="@TeamLineLan">
-      <meta name="twitter:title" content="Line-Lan.net Server Status"/>
-
-      <meta property="og:type" content="website">
-      <meta property="og:site_name" content="Line-Lan.net Server Status">
-      <meta property="og:title" content="Line-Lan.net Server Status">
-      <meta property="description" content="Monitoring the uptime of Line-Lan services">
-      <meta property="og:description" content="Monitoring the uptime of Line-Lan services">
-      <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2016/10/no_preview_available.jpg">
-
-      <link rel="shortcut icon" href="/favicon.ico">
-
-      <link href="res/css/bootstrap.min.css" rel="stylesheet">
-      <link href="res/css/custom.css" rel="stylesheet">
-
-      <!--[if lt IE 9]>
-        <script src="res/js/html5shiv.min.js"></script>
-        <script src="hres/js/respond.min.js"></script>
-      <![endif]-->
-      <script src="res/js/countdown.js"></script>
-
-   </head>
-
-   <?php
    // Detecting the users language
    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
       $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -79,7 +44,7 @@
       'homepage' => 'line-lan.net',
       'database' => 'localhost',
       'mail' => 'mail.line-lan.net',
-      'api' => 'api.line-lan.net',
+      'minecraft' => 'mc.line-lan.net',
       'teamspeak' => 'ts.line-lan.net',
       'dns' => 'kevin.ns.cloudflare.com');
 
@@ -88,7 +53,7 @@
       'homepage' => 'Homepage',
       'database' => 'Database',
       'mail' => 'Mail',
-      'api' => 'API',
+      'minecraft' => 'Minecraft',
       'teamspeak' => 'Teamspeak',
       'dns' => 'DNS');
 
@@ -97,7 +62,7 @@
       'homepage' => 443,
       'database' => 3306,
       'mail' => 993,
-      'api' => 80,
+      'minecraft' => 25565,
       'teamspeak' => 10011,
       'dns' => 53);
 
@@ -128,11 +93,44 @@
       $alert_title = $lang['major_outage'];
       $alert_text = $lang['major_outage_detail'];
    }
+?>
 
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, user-scalable=no">
 
+      <title>Line-Lan.net Server Status</title>
 
-   ?>
+      <meta name="theme-color" content="#212121">
+      <meta name="description" content="Monitoring the uptime of Line-Lan services"/>
+      <meta name="twitter:card" content="summary">
+      <meta name="twitter:creator" content="@L1n3m4st3r"/>
+      <meta name="twitter:site" content="@TeamLineLan">
+      <meta name="twitter:title" content="Line-Lan.net Server Status"/>
 
+      <meta property="og:type" content="website">
+      <meta property="og:site_name" content="Line-Lan.net Server Status">
+      <meta property="og:title" content="Line-Lan.net Server Status">
+      <meta property="description" content="Monitoring the uptime of Line-Lan services">
+      <meta property="og:description" content="Monitoring the uptime of Line-Lan services">
+      <meta property="og:image" content="https://line-lan.net/wp-content/uploads/2016/10/no_preview_available.jpg">
+
+      <link rel="shortcut icon" href="/favicon.ico">
+
+      <link href="res/css/bootstrap.min.css" rel="stylesheet">
+      <link href="res/css/custom.css" rel="stylesheet">
+
+      <!--[if lt IE 9]>
+        <script src="res/js/html5shiv.min.js"></script>
+        <script src="hres/js/respond.min.js"></script>
+      <![endif]-->
+      <script src="res/js/countdown.js"></script>
+
+   </head>
+   
    <body>
       <nav class="navbar navbar-inverse">
          <div class="container-fluid">
@@ -168,7 +166,7 @@
                </ul>
 
                <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <?php $localtime = (time() + 60 * 60 * 2); echo date("H:i:s", $localtime); ?></a></li>
+                  <li><a href="#"><strong><?php echo $lang['last_update']; ?></strong> <?php echo date("H:i:s", time()); ?></a></li>
                   <li><a href="#"><strong><?php echo $lang['refreshing_in']; ?></strong> <span id="cID3"> Init<script>countdown(59, 'cID3');</script></span> <strong><?php echo $lang['seconds']; ?></strong></a></li>
                   <li class="visible-lg-inline"><a href="#"><strong><?php echo $lang['connection_latency']; ?></strong> <?php echo getPing('google.de'); ?> ms</a></li>
                </ul>
