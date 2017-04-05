@@ -1,5 +1,15 @@
 <?php
 
+    include "functions.inc.php";
+
+    if (file_exists("config.inc.php")) {
+        include "config.inc.php";
+    } else if (file_exists("config.sample.inc.php")) {
+        include "config.sample.inc.php";
+    } else {
+        die();
+    }
+
    // Detecting the users language
    if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
       $user_lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
@@ -12,59 +22,6 @@
    } else {
       require_once 'lang/en.php';
    }
-
-   // Check the Status of a Webserver
-   function isPingable($host, $port) {
-      if ($socket = @fsockopen($host, $port, $errno, $errstr, 2)) {
-         fclose($socket);
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   // Check the latency to a Webserver
-   function getPing($domain) {
-      $starttime = microtime(true);
-      $file = @fsockopen($domain, 80, $errno, $errstr, 10);
-      $stoptime = microtime(true);
-      $status = 0;
-      if (!$file) {
-         $status = -1;
-      } else {
-         fclose($file);
-         $fstatus = ($stoptime - $starttime) * 1000;
-         $status = floor($fstatus);
-      }
-      return $status;
-   }
-
-   // Array for addresses of servers
-   $addresses = array(
-      'homepage' => 'line-lan.net',
-      'database' => 'localhost',
-      'mail' => 'mail.line-lan.net',
-      'minecraft' => 'mc.line-lan.net',
-      'teamspeak' => 'ts.line-lan.net',
-      'dns' => 'kevin.ns.cloudflare.com');
-
-   // Array for actual display names
-   $disp = array(
-      'homepage' => 'Homepage',
-      'database' => 'Database',
-      'mail' => 'Mail',
-      'minecraft' => 'Minecraft',
-      'teamspeak' => 'Teamspeak',
-      'dns' => 'DNS');
-
-   // Array for ports of servers
-   $ports = array(
-      'homepage' => 443,
-      'database' => 3306,
-      'mail' => 993,
-      'minecraft' => 25565,
-      'teamspeak' => 10011,
-      'dns' => 53);
 
    // Push Value with key into array: $data[$key] = $value;
    $downcount = 0;
