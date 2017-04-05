@@ -216,7 +216,7 @@
                      <a href="https://line-lan.net/kontakt/"><?php echo $lang['contact']; ?></a>
 
                      <br/><br />
-                     &copy; 2012-<?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
+                     &copy; <?php echo date("Y"); ?> <a href="https://line-lan.net">Line-Lan.net</a>
                </div>
 
             </div>
