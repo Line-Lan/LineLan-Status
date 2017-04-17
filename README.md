@@ -1,11 +1,10 @@
-# Line-Lan.net Server Status
-Simple Status page for our Homepage. You can configure checked hosts with
-corresponding hosts via three arrays ($addresses, $disp and $ports).
+# Line-Lan.net Statuspage
 
-* *$adresses* holds all checked domains/IPs
-* *$disp is* used for display names
-* *$ports* is used for storing the port for each checked element in *$adresses*
+This is a simple status page that we use to monitor all of our services and to
+give our users the ability to check if a error is server-side or client-side.
 
-Live version: https://status.line-lan.net
+Configuration is stored in the file `config.inc.php` which is excluded by
+`.gitignore`. Please refer to `config.sample.inc.php` for a configuration
+example. 
 
-Visit us at https://line-lan.net
+You can see a live version of this project here: https://status.line-lan.net
