@@ -53,16 +53,16 @@
       $alert_text = $lang['major_outage_detail'];
    }
    
-   // No subfolder given
+
     if (empty($path[0])) {
         // Load default interface
+        // TODO: Option to set default interface
         require_once "interfaces/bootstrap.php";
-
-    } else if ($path[0] == "api") {
-        // Load api
-        require_once "interfaces/api.php";
-    } else {
-
-        require_once('pages/404.php');
-
+    } else if (file_exists('interfaces/'.$path[0].'.php')) {
+        // Requested interface exists
+        require_once 'interfaces/'.$path[0].'.php';
+    } else{
+        // No interface found
+        header("HTTP/1.1 404 Not Found");
+        die("No interface for handling the request available!");
     }
