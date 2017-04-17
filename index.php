@@ -27,8 +27,10 @@
 
    // Push Value with key into array: $data[$key] = $value;
    $downcount = 0;
+   $servercount = 0;
 
    foreach ($addresses as $key => $value) {
+      $servercount++;
       $temp = isPingable($value, $ports[$key]);
       $statuses[$key] = $temp;
       if (!$temp) {
