@@ -2,6 +2,8 @@
 
     include "functions.inc.php";
 
+    $path = explode("/", $_GET["interface"], 10);
+
     if (file_exists("config.inc.php")) {
         include "config.inc.php";
     } else if (file_exists("config.sample.inc.php")) {
@@ -50,5 +52,17 @@
       $alert_title = $lang['major_outage'];
       $alert_text = $lang['major_outage_detail'];
    }
+   
+   // No subfolder given
+    if (empty($path[0])) {
+        // Load default interface
+        require_once "interfaces/bootstrap.php";
 
-require_once "interfaces/bootstrap.php";
+    } else if ($path[0] == "api") {
+        // Load api
+        require_once "interfaces/api.php";
+    } else {
+
+        require_once('pages/404.php');
+
+    }
