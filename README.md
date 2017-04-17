@@ -8,3 +8,5 @@ Configuration is stored in the file `config.inc.php` which is excluded by
 example. 
 
 You can see a live version of this project here: https://status.line-lan.net
+
+This software is released under the MIT License
